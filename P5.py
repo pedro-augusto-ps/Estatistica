@@ -12,12 +12,13 @@ Mariazinha = 0.7
 probabilidade_JM = (1 - Joaozinho) * (1 - Mariazinha) #Calculo a % deles falharem (AMBOS *)
 print(f"PROBABILIDADE DO PROBLEMA SER RESOLVIDO É DE: {(1 - probabilidade_JM) * 100}")
 
-#2 - Caso genérico
+print(f"-"*50)
 
+#2 - Caso genérico
 qtd_casos = int(input("Insira quantos casos quer adicionar: "))
-aux = []
+
 probabilidade_falha = 1
 for i in range (1, qtd_casos+1):
     valor = float(input(f"Insira o valor para o {i}º caso: "))
     probabilidade_falha *= (1 - valor)
-print(f"PROBALIDADE DESSE PROBLEMA SER RESOLVIDO É DE: {(1 - probabilidade_falha) * 100}%")
+print(f"PROBABILIDADE DO PROBLEMA SER RESOLVIDO É DE: {(1 - probabilidade_falha) * 100}%")
