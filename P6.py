@@ -15,8 +15,10 @@ print(f"-" * 50)
 try:
     qtd_reparos = int(input("Insira quantia de lavadoras que exigiram reparos: "))
     total = int(input("Insira o total de lavadoras: "))
-    if qtd_reparos < total and qtd_reparos != 0 or total != 0:
+    if qtd_reparos <= total and total != 0:
         probabilidade = (1 - (qtd_reparos / total)) * 100
         print(f"PARA O CASO GENÉRICO A PROBABILIDADE DE NÃO PEDIR REPARO É DE: {probabilidade:.2f}%")
-except ZeroDivisionError, ValueError:
+    else:
+        print("Divisão por 0")
+except ValueError:
     print(f"Erro: valor inválido")
