@@ -15,3 +15,4 @@ for _ in range(n):
     total -= 1
 
 print(f"{probabilidade:.2f}")
+
