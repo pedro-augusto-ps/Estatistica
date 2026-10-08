@@ -16,7 +16,7 @@ def poisson(euler, taxa_media, qtd_queremosK):
 euler = math.e
 while True:
 
-    especial = str(input("Sua questão tem uma condição especial? (EX: min - seg) Y/N"))
+    especial = str(input("Sua questão tem uma condição especial? (EX: min - seg) Y/N "))
 
     if especial == "Y":
         taxa_media = float(input("Insira a taxa média(Lambda): "))
