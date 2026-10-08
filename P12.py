@@ -39,4 +39,4 @@ combinacao_subtraçao = combinacao(pessoas - mulheres, qtd_retirada - caso_favor
 combinacao_populacao = combinacao(pessoas, qtd_retirada)
 resultado = (combinacao_sucesos * combinacao_subtraçao) / combinacao_populacao
 
-print(f"A chance de um resultado favorável é de: {resultado:.2f}")
+print(f"A chance de um resultado favorável é de: {resultado * 100:.2f}%")
