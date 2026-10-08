@@ -25,11 +25,14 @@ def fatorial(k): #Resolve o fatorial
         fat *= i 
     return fat
 
-for i in range(k):
-    aux *= (n - i)
-    
+def ParteSuperiorCombinacao(k, n):
+    aux = 1
+    for i in range(k):
+        aux *= (n - i)
+    return aux
+
 print("-----A, B-----")
-combinacao = aux / fatorial(k)
+combinacao = ParteSuperiorCombinacao(k, n) / fatorial(k)
 print(combinacao)
 binomial = combinacao * (pow(probabilidade_defeito, k)) 
 print(binomial)
@@ -58,4 +61,4 @@ print("-----D-----\n")
 # Letra E
 print("-----E-----")
 #formula variancia binomial = n*p*(1-p)
-print(20*0.05*(1-0.05))
+print(f"Variância: {20*0.05*(1-0.05)}")
