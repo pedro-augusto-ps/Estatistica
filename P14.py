@@ -25,8 +25,8 @@ class Probabilidade():
         for i in range(limite + 1):
             self.bits_jogados = i #Sim, isso muda o atributo da classe inteira :D Perdoa o pai
             acumulador += self.binomial()
-        return acumulador
+        return 1 - acumulador 
 conta1 = Probabilidade(10000, 0.0002, 4)
-print(f"{conta1.binomial()*100}%")
+
 print(f"A probabilidade de ter erros neste limite é de: {conta1.maior_que()*100}%")
 
