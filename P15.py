@@ -5,14 +5,16 @@
 #Y = 1 / b - a # "Os valores que essa variavel aleatória pode assumir, esta entre B e A"  A < X < B
 
 while True:
-    X = int(input("Insira o valor esperado: "))
-    A = int(input("Insira A:")) #Para o intervalo grande
-    B = int(input("Insira B:")) #Para o intervalo grande
-    C = int(input("Insira C:"))
+    A = float(input("Insira A:")) #Para o intervalo grande
+    B = float(input("Insira B:")) #Para o intervalo grande
+    if A > B:
+        print("Subintervalo com valor inválido")
+        continue
+    C = float(input("Insira C:"))
     if C < A or C > B:
         print("Subintervalo com valor inválido")
         continue
-    D = int(input("Insira D:"))
+    D = float(input("Insira D:"))
     if D < A or D > B or D < C:
         print("Subintervalo com valor inválido")
         continue
@@ -26,4 +28,4 @@ while True:
     print(f"Variância: {variancia}")
     print(f"Probabilidade do valor estar entre C e D: {prob_entre_CD * 100}%")
 
-
+    
