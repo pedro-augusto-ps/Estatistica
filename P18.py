@@ -35,5 +35,7 @@ while True:
     else:
         print("Opção inválida")
 
+    print("-" * 50)
 
+    
 
