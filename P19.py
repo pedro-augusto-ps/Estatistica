@@ -63,7 +63,7 @@ while True:
         print("Opção inválida")
         continue
 
-    continuar = input("Deseja continuar? S/N" ).upper()
+    continuar = input("Deseja continuar? S/N ").upper()
     if continuar == "N":
         break
     else:
