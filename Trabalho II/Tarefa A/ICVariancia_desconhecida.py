@@ -4,7 +4,7 @@ from scipy import stats
 #Com a variância desconhecida utilizamos a distribuição T para casos em que N < 30:
 #Com este cálculo estimos a média populacional com um intervalo de confiança.
 
-def ICVarianciaDesconhecida(amostra, media_amostral, confianca, variancia_amostral,):
+def variancia_desconhecida(amostra, confianca, media_amostral, variancia_amostral,):
     """
     PARÂMETROS:
     amostra: Deve ser maior ou igual a 2, devido ao GL
@@ -36,12 +36,19 @@ def ICVarianciaDesconhecida(amostra, media_amostral, confianca, variancia_amostr
     limite_inferior = media_amostral - erro
     limite_superior = media_amostral + erro
 
-    return {
-        "distribuicao": distribuicao,
-        "margem": erro,
-        "estimativa": media_amostral,
-        "limite_inferior": limite_inferior,
-        "limite_superior": limite_superior,
-    }
+    print("-----VARIÂNCIA DESCONHECIDA-----")
+    print(f"Distribuição: {distribuicao}")
+    print(f"Margem: {erro}")
+    print(f"Estimativa: {media_amostral}")
+    print(f"Limite_inferior: {limite_inferior}")
+    print(f"Limite_superior: {limite_superior}") 
+
+    # return {
+    #     "distribuicao": distribuicao,
+    #     "margem": erro,
+    #     "estimativa": media_amostral,
+    #     "limite_inferior": limite_inferior,
+    #     "limite_superior": limite_superior,
+    # }
 
     

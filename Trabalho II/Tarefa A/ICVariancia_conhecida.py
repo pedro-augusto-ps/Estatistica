@@ -7,7 +7,7 @@ from scipy import stats
 #FÓRMULA: X̄ +- Za/2 * ( σ / √n )
 
 
-def ICVarianciaConhecida(amostra, media_amostral, confianca, variancia_populacional):
+def variancia_conhecida(amostra, confianca, media_amostral, variancia_populacional):
     """
     PARÂMETROS:
     amostra: Deve ser maior ou igual a 1
@@ -33,12 +33,20 @@ def ICVarianciaConhecida(amostra, media_amostral, confianca, variancia_populacio
 
     limite_inferior = media_amostral - erro
     limite_superior = media_amostral + erro
-    return {
-        "distribuicao": distribuicao,
-        "margem": erro,
-        "estimativa": media_amostral,
-        "limite_inferior": limite_inferior,
-        "limite_superior": limite_superior,
-    }
+
+    print("-----VARIÂNCIA CONHECIDA-----")
+    print(f"Distribuição: {distribuicao}")
+    print(f"Margem: {erro}")
+    print(f"Estimativa: {media_amostral}")
+    print(f"Limite_inferior: {limite_inferior}")
+    print(f"Limite_superior: {limite_superior}")
+
+    # return {
+    #     "distribuicao": distribuicao,
+    #     "margem": erro,
+    #     "estimativa": media_amostral,
+    #     "limite_inferior": limite_inferior,
+    #     "limite_superior": limite_superior,
+    # }
 
     
