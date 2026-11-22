@@ -10,7 +10,7 @@ def proporcao_populacional(amostra, confianca, interesse, N):
     distribuicao = "Z"
     fator = math.sqrt((N - amostra) / (N - 1))
     if confianca <= 0 or confianca >= 1:
-        raise ValueError("Confiança deve estar entre 0 e 1. [EX: 0.95]")
+        raise ValueError(f"Confiança deve estar entre 0 e 1. [EX: 0.95], sua confiança: {confianca}")
     if amostra < 1:
         raise ValueError("Valor inválido para amostra!")
     if interesse < 0 or interesse > amostra:

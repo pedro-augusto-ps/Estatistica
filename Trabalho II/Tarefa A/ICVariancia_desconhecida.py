@@ -4,7 +4,7 @@ from scipy import stats
 #Com a variância desconhecida utilizamos a distribuição T para casos em que N < 30:
 #Com este cálculo estimos a média populacional com um intervalo de confiança.
 
-def variancia_desconhecida(amostra, confianca, media_amostral, variancia_amostral,):
+def variancia_desconhecida(amostra, confianca, media_amostral, variancia_amostral):
     """
     PARÂMETROS:
     amostra: Deve ser maior ou igual a 2, devido ao GL

@@ -20,7 +20,7 @@ def variancia_conhecida(amostra, confianca, media_amostral, variancia_populacion
     distribuicao = "Z"
 
     if confianca <= 0 or confianca >= 1:
-        raise ValueError("Confiança deve estar entre 0 e 1. [EX: 0.95]")
+        raise ValueError(f"Confiança deve estar entre 0 e 1. [EX: 0.95], sua confiança: {confianca}")
     if amostra < 1 or type(amostra) != int:
         raise ValueError("Valor inválido para amostra!")
     if variancia_populacional <= 0:
@@ -36,10 +36,10 @@ def variancia_conhecida(amostra, confianca, media_amostral, variancia_populacion
 
     print("-----VARIÂNCIA CONHECIDA-----")
     print(f"Distribuição: {distribuicao}")
-    print(f"Margem: {erro}")
+    print(f"Margem: {erro:.4f}")
     print(f"Estimativa: {media_amostral}")
-    print(f"Limite_inferior: {limite_inferior}")
-    print(f"Limite_superior: {limite_superior}")
+    print(f"Limite_inferior: {limite_inferior:.4f}")
+    print(f"Limite_superior: {limite_superior:.4f}")
 
     # return {
     #     "distribuicao": distribuicao,
