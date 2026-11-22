@@ -7,15 +7,15 @@ from scipy import stats
 #FÓRMULA: X̄ +- Za/2 * ( σ / √n )
 
 
-def variancia_conhecida(amostra, confianca, media_amostral, variancia_populacional):
+def func_VarianciaConhecida(amostra, confianca, media_amostral, variancia_populacional):
     """
     PARÂMETROS:
-    amostra: Deve ser maior ou igual a 1
-    σ^2: Não pode ser negativa
-    confianca: Deve estar entre 0 e 1,
+    amostra: Deve ser maior ou igual a 1.
+    σ^2: Não pode ser negativa.
+    confianca: Deve estar entre 0 e 1.
 
     RETORNOS:
-    Retorna um DICT com nossas respostas
+    Retorna um dict, porém deixei um print para facilitar.
     """
     distribuicao = "Z"
 
@@ -41,12 +41,12 @@ def variancia_conhecida(amostra, confianca, media_amostral, variancia_populacion
     print(f"Limite_inferior: {limite_inferior:.4f}")
     print(f"Limite_superior: {limite_superior:.4f}")
 
-    # return {
-    #     "distribuicao": distribuicao,
-    #     "margem": erro,
-    #     "estimativa": media_amostral,
-    #     "limite_inferior": limite_inferior,
-    #     "limite_superior": limite_superior,
-    # }
+    return {
+        "distribuicao": distribuicao,
+        "margem": erro,
+        "estimativa": media_amostral,
+        "limite_inferior": limite_inferior,
+        "limite_superior": limite_superior,
+    }
 
     
