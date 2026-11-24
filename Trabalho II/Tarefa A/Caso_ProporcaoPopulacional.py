@@ -1,12 +1,22 @@
 import math
 from scipy import stats
 
-#Para descobrir a proporção, usamos p^ (P chapéu)
-#P^ = "interesse"
-#Com P^ utilizamos novamente, da média +- erro
+#P^ = Proporção amostral
+#P = Proporção populacional
 #FÓRMULA: media_amostral +- Zc * sqrt.((P^(1 - P^) / n))
 
-def proporcao_populacional(amostra, confianca, interesse, N):
+def func_ProporcaoPopulacional(amostra, confianca, interesse, N):
+    """
+    PARÂMETROS:
+    amostra: Deve ser maior ou igual a 1.
+    confianca: Deve estar entre 0 e 1.
+    interrese: Deve ser maior que 0 e MENOR que a amostra.
+    N: Tamanho total da população.
+
+    RETORNOS:
+    Retorna um dict, porém deixei um print para facilitar.
+    """
+
     distribuicao = "Z"
     fator = math.sqrt((N - amostra) / (N - 1))
     if confianca <= 0 or confianca >= 1:
@@ -22,24 +32,25 @@ def proporcao_populacional(amostra, confianca, interesse, N):
 
     erro = (p_chapeu * (1 - p_chapeu)) / amostra
     if N < (20 * amostra):
-        resultado = (math.sqrt(erro) * fator) * valor_critico
+        margem = math.sqrt(erro) * valor_critico
+        resultado = margem * fator
     else:
-        resultado = valor_critico * (math.sqrt(erro))
-    limite_inferior = p_chapeu - resultado
-    limite_superior = p_chapeu + resultado
+        margem = valor_critico * math.sqrt(erro)
+    limite_inferior = p_chapeu - margem
+    limite_superior = p_chapeu + margem
 
     print("-----PROPORÇÃO POPULACIONAL-----")
     print(f"Distribuição: {distribuicao}")
-    print(f"Margem: {erro}")
+    print(f"Margem: {erro:.4f}")
     print(f"Estimativa: {p_chapeu}")
-    print(f"Limite_inferior: {limite_inferior}")
-    print(f"Limite_superior: {limite_superior}")
+    print(f"Limite_inferior: {limite_inferior:.4f}")
+    print(f"Limite_superior: {limite_superior:.4f}")
     
-    # return {
-    #     "distribuicao": distribuicao,
-    #     "margem": erro,
-    #     "estimativa": p_chapeu,
-    #     "limite_inferior": limite_inferior,
-    #     "limite_superior": limite_superior,
-    # }
+    return {
+        "distribuicao": distribuicao,
+        "margem": margem,
+        "estimativa": p_chapeu,
+        "limite_inferior": limite_inferior,
+        "limite_superior": limite_superior,
+    }
 

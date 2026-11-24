@@ -1,6 +1,16 @@
 from scipy import stats
 
-def icvariancia_populacional(amostra, confianca, variancia_amostral):
+def func_VarianciaPopulacional(amostra, confianca, variancia_amostral):
+    """
+    PARÂMETROS:
+    amostra: Deve ser maior ou igual a 1.
+    s^2: Não pode ser negativa.
+    confianca: Deve estar entre 0 e 1,
+
+    RETORNOS:
+    Retorna um dict, porém deixei um print para facilitar.
+    """
+
     distribuicao = "Qui-Quadrado"
 
     if confianca <= 0 or confianca >= 1:
@@ -13,7 +23,6 @@ def icvariancia_populacional(amostra, confianca, variancia_amostral):
     alpha = 1 - confianca
     gl = amostra - 1
 
-
     valor_critico_esquerda = stats.chi2.ppf(alpha / 2, df=gl)
     valor_critico_direita = stats.chi2.ppf(1 - alpha / 2, df=gl)
 
@@ -23,16 +32,16 @@ def icvariancia_populacional(amostra, confianca, variancia_amostral):
 
     print("-----VARIÂNCIA POPULACIONAL-----")
     print(f"Distribuição: {distribuicao}")
-    print(f"Valor crítico esquerdo: {valor_critico_esquerda}")
-    print(f"Valor crítico direito: {valor_critico_direita}")
-    print(f"Limite inferior: {limite_inferior}")
-    print(f"Limite superior: {limite_superior}") 
+    print(f"Valor crítico esquerdo: {valor_critico_esquerda:.4f}")
+    print(f"Valor crítico direito: {valor_critico_direita:.4f}")
+    print(f"Limite inferior: {limite_inferior:.4f}")
+    print(f"Limite superior: {limite_superior:.4f}") 
 
-    # return {
-    #     "distribuicao": distribuicao, 
-    #     "estimativa": variancia_amostral,
-    #     "valor_critico_esquerdo": valor_critico_esquerda,
-    #     "valor_critico_direito": valor_critico_direita,
-    #     "limite_inferior": limite_inferior,
-    #     "limite_superior": limite_superior,
-    # }
+    return {
+        "distribuicao": distribuicao, 
+        "estimativa": variancia_amostral,
+        "valor_critico_esquerdo": valor_critico_esquerda,
+        "valor_critico_direito": valor_critico_direita,
+        "limite_inferior": limite_inferior,
+        "limite_superior": limite_superior,
+    }
